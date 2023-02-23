@@ -1,0 +1,25 @@
+<h1>Products#index</h1>
+<p id="hola">Find me in app/views/products/index.html.erb</p>
+
+<%= form_tag(products_path, method: :get, remote: true) do %>
+    <%= text_field_tag :search_product %>
+    <%= submit_tag "buscar" %>
+<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <% @products.each do |product| %>
+            <%= render partial: 'table', locals: {product: product}%>
+        <% end %>
+    </tbody>
+</table>
+
+
